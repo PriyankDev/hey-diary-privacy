@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Hey Diary</title>
+<style>
+  :root {
+    --bg: #fbfaf8; --surface: #ffffff; --ink: #1c1b1f; --muted: #5c5a63;
+    --line: #e4e1da; --accent: #5b3fa8; --accent-soft: #f2eefb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131218; --surface: #1c1b22; --ink: #e8e6ee; --muted: #a5a2af;
+      --line: #2e2c36; --accent: #b79cf0; --accent-soft: #221d31;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .4rem; letter-spacing: -.02em; }
+  .sub { color: var(--muted); font-size: .93rem; margin: 0; }
+  h2 { font-size: 1.18rem; margin: 2.6rem 0 .7rem; letter-spacing: -.01em; padding-top: .3rem; }
+  h3 { font-size: 1rem; margin: 1.6rem 0 .4rem; }
+  a { color: var(--accent); }
+  .callout {
+    background: var(--accent-soft); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px; padding: 1.1rem 1.25rem; margin: 1.5rem 0;
+  }
+  .callout p:first-child { margin-top: 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: .5rem;
+  }
+  ul { padding-left: 1.2rem; }
+  li { margin: .35rem 0; }
+  .scroll { overflow-x: auto; margin: 1.2rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; min-width: 34rem; }
+  th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 600; color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .87em; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 4px; padding: .08em .35em;
+  }
+  footer { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Privacy Policy for Hey&nbsp;Diary</h1>
+  <p class="sub">Last updated: 9 October 2026</p>
+</header>
+
+<div class="callout">
+  <span class="tag">The short version</span>
+  <p><strong>Hey Diary collects nothing.</strong> There is no account, no sign-in, no analytics, no advertising, and no server. Everything you write stays in encrypted storage on your own phone.</p>
+  <p>The app does not even hold the Android <code>INTERNET</code> permission, so it is incapable of sending your diary anywhere &mdash; not to us, not to anyone. This is enforced by Android itself, not merely promised by us.</p>
+  <p>You do not have to take our word for it. The full list of permissions an app requests is shown on its Google Play listing and in Android&rsquo;s own app info screen. Ours contains no network access.</p>
+</div>
+
+<h2>1. Who this policy is from</h2>
+<p>This policy covers the Android application <strong>Hey Diary</strong> (package <code>com.pre.heydiary</code>), published by <strong>Priyank Dave</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;). It explains what happens to information when you use the app.</p>
+<p>Because we operate no servers and receive no data from the app, we are not a custodian of your diary in any practical sense. You are.</p>
+
+<h2>2. Information we collect</h2>
+<p><strong>None.</strong> We do not collect, receive, transmit, store, sell, or share any personal information whatsoever.</p>
+<p>Specifically, the app contains:</p>
+<ul>
+  <li>No user accounts, registration, email capture, or sign-in of any kind</li>
+  <li>No analytics, telemetry, usage statistics, or crash reporting</li>
+  <li>No advertising, ad identifiers, or marketing SDKs</li>
+  <li>No third-party trackers or social-media SDKs</li>
+  <li>No cloud sync, remote backup, or hosted storage</li>
+</ul>
+
+<h2>3. What the app stores on your device</h2>
+<p>Your diary exists only in your phone&rsquo;s private application storage, which other apps cannot read. This includes your entries and their titles, photos and voice notes you attach, moods and tags, writing streaks and statistics, reminder settings, and your appearance preferences.</p>
+
+<h3>How it is protected</h3>
+<ul>
+  <li><strong>The diary database is fully encrypted</strong> using SQLCipher (AES&#8209;256).</li>
+  <li><strong>Your PIN is never stored.</strong> The encryption key is derived from it using PBKDF2&#8209;SHA512 with 300,000 iterations, which makes guessing attacks slow and expensive even for someone holding your phone.</li>
+  <li><strong>Photos and voice notes are encrypted individually</strong> with AES&#8209;GCM&#8209;256 using a key derived per file, and are written to disk only in encrypted form.</li>
+  <li><strong>Locking clears the key.</strong> When the app locks, the database is closed and the master key is wiped from memory, so a locked app holds nothing readable.</li>
+  <li><strong>Your diary is excluded from Android&rsquo;s automatic cloud backup</strong> (<code>allowBackup=false</code>), so it is never copied to Google Drive by the operating system.</li>
+</ul>
+<p>If you enable biometric unlock, the fingerprint or face match is performed entirely by Android. The app is only told whether the check succeeded; it never receives or stores biometric data.</p>
+
+<h2>4. When information leaves your device</h2>
+<p>Only when you personally choose to send it. The app never transmits anything on its own. The three ways you can move data out are:</p>
+<ul>
+  <li><strong>Sharing</strong> &mdash; when you tap share, Android&rsquo;s own share sheet appears and you pick the destination. What happens next is governed by whichever app you chose, not by us.</li>
+  <li><strong>Saving an image to your gallery</strong> &mdash; the file is written to your device&rsquo;s photo library, where other apps you have permitted may be able to see it.</li>
+  <li><strong>Creating a backup file</strong> &mdash; described below.</li>
+</ul>
+
+<h2>5. Backups you create</h2>
+<p>You can export an encrypted backup file. It is protected by a <strong>separate backup password that you choose</strong>, independent of your PIN, using PBKDF2&#8209;SHA512 with 300,000 iterations and AES&#8209;GCM&#8209;256. This is what allows a backup to be restored onto a different phone.</p>
+<div class="callout">
+  <p><strong>Two things to understand about backups.</strong> First, once you save or send that file it is entirely in your hands &mdash; if you place it in cloud storage or a chat app, that service now holds it, subject to their privacy policy rather than this one.</p>
+  <p>Second, <strong>we cannot recover your backup password.</strong> There is no reset, because there is no server that has ever seen it. A backup whose password is lost cannot be opened by anyone, including us.</p>
+</div>
+<p>Some device-local settings &mdash; such as reminder preferences and progress markers &mdash; are deliberately kept out of backups and stay on the device that created them.</p>
+
+<h2>6. Notifications and home-screen widgets</h2>
+<p>Reminders and home-screen widgets are deliberately <strong>content-free</strong>. They never display or contain your entry text, titles, photos, voice notes, moods, PIN, or encryption keys. A reminder nudges you to write; it never reveals what you wrote, so a glance at your lock screen exposes nothing.</p>
+
+<h2>7. Permissions, and why each one exists</h2>
+<p>Android requires that we list every permission the app requests. Each is used only for the stated feature, and the app functions without the optional ones if you decline.</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Permission</th><th>Why it is needed</th></tr></thead>
+  <tbody>
+    <tr><td><code>CAMERA</code></td><td>To take a photo to attach to an entry, only when you choose to.</td></tr>
+    <tr><td><code>RECORD_AUDIO</code></td><td>To record a voice note, only when you start a recording.</td></tr>
+    <tr><td><code>POST_NOTIFICATIONS</code></td><td>To show the writing reminders you set up.</td></tr>
+    <tr><td><code>USE_BIOMETRIC</code>, <code>USE_FINGERPRINT</code></td><td>To offer fingerprint or face unlock instead of typing your PIN.</td></tr>
+    <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>To restore your scheduled reminders after the phone restarts, so they are not silently lost.</td></tr>
+    <tr><td><code>VIBRATE</code></td><td>Haptic feedback while using the app.</td></tr>
+    <tr><td><code>WRITE_EXTERNAL_STORAGE</code></td><td>Saving an image to your gallery on Android&nbsp;9 and older only. Newer versions do not use it.</td></tr>
+    <tr><td><code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code></td><td>Added by the audio-recording and notification libraries so that recording and reminder delivery are not interrupted.</td></tr>
+    <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>Declared by a bundled media library. It only reports whether a network exists. Because the app does <strong>not</strong> hold the <code>INTERNET</code> permission, it cannot connect to one regardless.</td></tr>
+    <tr><td><code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code></td><td>A permission the app defines for its own use, added automatically by a standard Android support library. It restricts internal messages to this app alone and grants no access to your data or your device.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>8. Your control over your data</h2>
+<ul>
+  <li><strong>Delete anything, anytime</strong> &mdash; individual entries and attachments can be deleted inside the app.</li>
+  <li><strong>Delete everything</strong> &mdash; uninstalling Hey Diary permanently removes the encrypted database, all media, your PIN verifier, and all keys from your device. Because the app is excluded from Android&rsquo;s cloud backup, no copy survives elsewhere.</li>
+  <li><strong>Nothing to request from us</strong> &mdash; conventional rights of access, correction, portability, and erasure are usually exercised by asking a company for the data it holds about you. We hold none. Your data is already in your sole possession, and export and deletion are both available to you directly in the app.</li>
+</ul>
+<p>Where laws such as the EU/UK GDPR, the California Consumer Privacy Act, or India&rsquo;s Digital Personal Data Protection Act, 2023 apply, our position is the same: we process no personal data through this app, so there is nothing for us to disclose, correct, transfer, or erase on request. We do not sell or share personal information, because we never receive any.</p>
+
+<h2>9. Children</h2>
+<p>Hey Diary is a personal journal intended for general audiences and is not directed at children under 13. It collects no information from anyone, children included.</p>
+
+<h2>10. Security</h2>
+<p>The protections described in Section&nbsp;3 are meaningful, but no system is perfect. The security of your diary also depends on the security of your device: a phone that is unlocked, rooted, compromised by malware, or shared with someone who knows your PIN can expose its contents. Choose a PIN that is not guessable, keep your device&rsquo;s own lock enabled, and store backup files somewhere you trust.</p>
+
+<h2>11. Changes to this policy</h2>
+<p>If the app ever changes in a way that affects this policy, we will update this page and revise the date at the top. Material changes will be reflected here before or alongside the release that introduces them. Since the app has no way to contact you, please check this page if you want to stay current.</p>
+
+<h2>12. Contact</h2>
+<p>Questions about this policy or about privacy in Hey Diary can be sent to <a href="mailto:priyankdave2000@gmail.com">priyankdave2000@gmail.com</a>.</p>
+
+<footer>
+  <p>Hey Diary &mdash; <code>com.pre.heydiary</code>. This policy applies to the Android application distributed through Google Play and to no other product or service.</p>
+</footer>
+
+</div>
+</body>
+</html>
